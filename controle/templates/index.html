@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="jumbotron">
+	<div class="container">
+		<h1 class="display-3">
+		SISCOF
+		</h1>
+		
+		<p>
+			SISCOF é o acrônimo para "sistema de controle de frequência" o qual foi pensado para suportar o gerenciamento da frequência dos colaboradores de uma empresa.
+		</p>
+		
+		<p>
+			<a href="{% url 'cadastro' %}" class="btn btn-primary btn-lg" role="button">Clique aqui para se cadastrar </a>
+		</p>
+		
+		<p>
+			ou clique em Entrar no menu acima
+		</p>
+	</div>
+</div>
+{% endblock %}

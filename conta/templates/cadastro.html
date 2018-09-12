@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+
+	<div class="container">
+
+		<h3 class="h3 mb-3 font-weight-normal">Cadastre-se</h3>
+
+			<form action="{% url 'cadastro' %}" method="post">
+				{% csrf_token %}
+
+					
+				<div class="for-row">
+	  				<div class="form-group col-md-2">
+
+						{{ form.non_field_erros }}
+
+						{% for field in form %}
+							<label for="field"></label>
+							{{ field.label_tag }}
+							{{ field }}
+							{% if field.errors %}
+				  				<ul class="errorlist">
+					  				{% for error in field.errors %}
+					  					<li>{{ error }}</li>
+				  					{% endfor %}
+			  					</ul>
+	  						{% endif %}
+						
+						{% endfor %}
+
+					<p></p>
+
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
+					</div>
+				</div>
+			</form>
+	</div>
+
+
+{% endblock %}
+
+		<div class="for-row">
+	  		<div class="form-group col-md-2">
+
+
+		  		{% for field in form %}
+		  			<label for="nome"></label>
+	  				{{ field.label_tag }}
+		  			{{ field }}
+		  			{% if field.errors %}
+		  				<ul class="errorlist">
+			  				{% for error in field.errors %}
+			  					<li>{{ error }}</li>
+		  					{% endfor %}
+	  					</ul>
+	  				{% endif %}
+
+				{% endfor %}
+				<p></p>
+				<button class="btn btn-primary btn-lg" type="submit" name="enviar"/>Enviar</button>

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<div>
+	<h1 class="display-3">
+		Lista de funcionários
+	</h1>
+	<br>
+</div>
+
+
+<form>
+
+	<div >
+
+		{% for funcionario in funcionarios %}
+			<ul>							
+				<label>Funcionário</label>
+				<a ref="#">{{ funcionario.nome }}</a>
+				</br>
+				<label>Chefe imediato</label>
+				<a ref="#">{{ funcionario.chefe_imediato }}</a>
+				</br>
+				<label>Setor</label>
+				<a ref="#">{{ funcionario.chefe_imediato.setor }}</a>
+				</br>
+				<label>Horário padrão</label>
+				<a ref="#">{{ funcionario.horaPadrao }}</a>
+			</ul>
+		{% endfor %}
+
+	</div>
+
+</form>
+
+{% endblock %}

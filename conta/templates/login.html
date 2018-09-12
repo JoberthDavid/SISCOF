@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block conteudo %}
+
+<div class="jumbotron">
+  <div class="container">
+
+    <div class="text-center">
+
+      <div class="col-sm-4 mx-auto">
+        <form action="{% url 'entrar' %}" method="post">
+          {% csrf_token %}
+
+          <h1 class="h3 mb-3 font-weight-normal">Para entrar informe</h1>
+          
+          <div class="for-row">
+            <div class="form-group col-md-4">
+
+            {{ form.non_field_erros }}
+
+            {% for field in form %}
+              <label for="field"></label>
+              {{ field.label_tag }}
+              {{ field }}
+              {% if field.errors %}
+                  <ul class="errorlist">
+                    {% for error in field.errors %}
+                      <li>{{ error }}</li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+            {% endfor %}
+
+            <p></p>
+          
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+            </div>
+          </div>
+        </form>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
